@@ -337,6 +337,10 @@
 	return components.year;
 }
 
+- (NSInteger) date8digit {
+  return self.year * 10000 + self.month * 100 + self.day;
+}
+
 #pragma mark -
 #pragma mark Retrieving date from string
 
