@@ -119,6 +119,12 @@
 - (NSDate *)endOfWeek;
 - (NSDate *)beginningOfDay;
 
++ (NSString *)weekdayWordsFromInt:(NSInteger)wd;
++ (NSString *)weekdayShortWordsFromInt:(NSInteger)wd;
+
+- (NSArray *)daysArrayInCurrentWeek;
+- (NSArray *)daysArrayInCurrentMonth;
+
 
 // Decomposing dates
 @property (readonly) NSInteger nearestHour;

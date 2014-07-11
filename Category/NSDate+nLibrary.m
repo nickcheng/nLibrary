@@ -690,6 +690,83 @@
   return [NSString stringWithFormat:@"%d%02d%02d", self.year, self.month, self.day];
 }
 
+#pragma mark -
+#pragma mark Weekday
+
++ (NSString *)weekdayWordsFromInt:(NSInteger)wd {
+  switch (wd) {
+    case 1:
+      return @"SUNDAY";
+      break;
+    case 2:
+      return @"MONDAY";
+      break;
+    case 3:
+      return @"TUESDAY";
+      break;
+    case 4:
+      return @"WEDNESDAY";
+      break;
+    case 5:
+      return @"THURDAY";
+      break;
+    case 6:
+      return @"FRIDAY";
+      break;
+    case 7:
+      return @"SATURDAY";
+      break;
+    default:
+      break;
+  }
+  return @"";
+}
+
++ (NSString *)weekdayShortWordsFromInt:(NSInteger)wd {
+  NSString *wdWord = [self weekdayWordsFromInt:wd];
+  if (wdWord.length > 0)
+    return [wdWord substringToIndex:3];
+  else
+    return @"";
+}
+
+- (NSArray *)daysArrayInCurrentWeek {
+  //
+  NSDate *firstDay = [self beginningOfWeek];
+  
+  //
+  NSMutableArray *arr = [[NSMutableArray alloc] init];
+  for (int i = 0; i < 7; i++) {
+    NSDate *date = [firstDay dateByAddingTimeInterval:i*24*60*60];
+    [arr addObject:date];
+  }
+  
+  //
+  return arr;
+}
+
+- (NSArray *)daysArrayInCurrentMonth {
+  //
+  NSMutableArray *arr = [[NSMutableArray alloc] init];
+  NSDateComponents *tarComp = [[NSCalendar currentCalendar] components:NSYearCalendarUnit
+                                                              fromDate:self];
+  [tarComp setMonth:self.month];
+  
+  NSRange dayRange = [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit
+                                                        inUnit:NSMonthCalendarUnit
+                                                       forDate:[[NSCalendar currentCalendar] dateFromComponents:tarComp]];
+  
+  for (int i = 1; i <= dayRange.length; i++) {
+    [tarComp setDay:i];
+    NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:tarComp];
+    [arr addObject:date];
+  }
+  
+  //
+  return arr;
+}
+
+
 #pragma mark
 
 - (NSDate *)firstDayOfMonth {
