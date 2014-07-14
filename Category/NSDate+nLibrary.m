@@ -465,7 +465,7 @@
     [comps setDay:[comps day] - i];
     NSDate* referenceDate = [calendar dateFromComponents:comps];
     // Get week day (starts at 1).
-    int weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
+    NSInteger weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
 		
     if ([suppliedDate compare:referenceDate] == NSOrderedSame && i == 0) {
       // Today
@@ -515,7 +515,7 @@
     [comps setDay:[comps day] - i];
     NSDate* referenceDate = [calendar dateFromComponents:comps];
     // Get week day (starts at 1).
-    int weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
+    NSInteger weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
 		
     if ([suppliedDate compare:referenceDate] == NSOrderedSame && i == 0) {
       // Today
@@ -570,7 +570,7 @@
     [comps setDay:[comps day] - i];
     NSDate* referenceDate = [calendar dateFromComponents:comps];
     // Get week day (starts at 1).
-    int weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
+    NSInteger weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
 		
     if ([suppliedDate compare:referenceDate] == NSOrderedSame && i == 0) {
       // Today
@@ -629,7 +629,7 @@
     [comps setDay:[comps day] - i];
     NSDate* referenceDate = [calendar dateFromComponents:comps];
     // Get week day (starts at 1).
-    int weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
+    NSInteger weekday = [[calendar components:unitFlags fromDate:referenceDate] weekday] - 1;
 		
     if ([suppliedDate compare:referenceDate] == NSOrderedSame && i == 0) {
       // Today
@@ -683,11 +683,11 @@
 }
 
 - (NSString *)dateString {
-  return [NSString stringWithFormat:@"%d-%02d-%02d", self.year, self.month, self.day];
+  return [NSString stringWithFormat:@"%ld-%02ld-%02ld", (long)self.year, (long)self.month, (long)self.day];
 }
 
 - (NSString *)dateString8 {
-  return [NSString stringWithFormat:@"%d%02d%02d", self.year, self.month, self.day];
+  return [NSString stringWithFormat:@"%ld%02ld%02ld", (long)self.year, (long)self.month, (long)self.day];
 }
 
 #pragma mark -
