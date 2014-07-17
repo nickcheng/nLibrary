@@ -84,7 +84,8 @@
 + (NSDate *)dateWithLongDateTimeString:(NSString*)str; // Returns an NSDate with a 'dd MMM yyyy HH:mm:ss' string
 + (NSDate *)dateWithRSSDateString:(NSString*)str;      // Returns an NSDate with an RSS formatted string: 'EEE, d MMM yyyy HH:mm:ss ZZZ' string
 + (NSDate *)dateWithAltRSSDateString:(NSString*)str;   // Returns an NSDate with an alternative RSS formatted string: 'd MMM yyyy HH:mm:ss ZZZ' string
-
++ (NSDate *)dateWithDateString8:(NSString *)str;
++ (NSDate *)dateWithDateInteger8:(NSInteger)digit;
 
 - (NSString *)formattedExactRelativeDate; // just now, 2 minutes ago, 2 hours ago, 2 days ago, etc.
 - (NSString *)formattedDateWithFormatString:(NSString*)dateFormatterString;  // Pass in an string compatible with NSDateFormatter

@@ -394,6 +394,16 @@
 	return [[self class] dateWithString:dateString formatString:@"d MMM yyyy HH:mm:ss ZZZ"];
 }
 
++ (NSDate *)dateWithDateString8:(NSString *)dateString {
+  return [[self class] dateWithString:dateString formatString:@"yyyyMMdd"];
+}
+
++ (NSDate *)dateWithDateInteger8:(NSInteger)digit {
+  NSString *dateString = [NSString stringWithFormat:@"%ld", (long)digit];
+  return [self dateWithDateString8:dateString];
+}
+
+
 #pragma mark Relative date
 
 - (NSString *)formattedExactRelativeDate {
