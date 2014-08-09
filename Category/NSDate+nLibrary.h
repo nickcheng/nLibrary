@@ -126,6 +126,7 @@
 - (NSArray *)daysArrayInCurrentWeek;
 - (NSArray *)daysArrayInCurrentMonth;
 
++ (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 
 // Decomposing dates
 @property (readonly) NSInteger nearestHour;
