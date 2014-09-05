@@ -125,6 +125,8 @@
 
 - (NSArray *)daysArrayInCurrentWeek;
 - (NSArray *)daysArrayInCurrentMonth;
++ (NSArray *)daysArrayInWeek:(NSDate *)date;
++ (NSArray *)daysArrayInMonth:(NSDate *)date;
 
 + (NSDate *)dateWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day;
 

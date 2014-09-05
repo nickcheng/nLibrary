@@ -741,8 +741,16 @@
 }
 
 - (NSArray *)daysArrayInCurrentWeek {
+  return [self.class daysArrayInWeek:self];
+}
+
+- (NSArray *)daysArrayInCurrentMonth {
+  return [self.class daysArrayInMonth:self];
+}
+
++ (NSArray *)daysArrayInWeek:(NSDate *)date {
   //
-  NSDate *firstDay = [self beginningOfWeek];
+  NSDate *firstDay = [date beginningOfWeek];
   
   //
   NSMutableArray *arr = [[NSMutableArray alloc] init];
@@ -755,12 +763,12 @@
   return arr;
 }
 
-- (NSArray *)daysArrayInCurrentMonth {
++ (NSArray *)daysArrayInMonth:(NSDate *)date {
   //
   NSMutableArray *arr = [[NSMutableArray alloc] init];
-  NSDateComponents *tarComp = [[NSCalendar currentCalendar] components:NSYearCalendarUnit
-                                                              fromDate:self];
-  [tarComp setMonth:self.month];
+  NSDateComponents *tarComp = [[NSDateComponents alloc] init];
+  [tarComp setYear:date.year];
+  [tarComp setMonth:date.month];
   
   NSRange dayRange = [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit
                                                         inUnit:NSMonthCalendarUnit
