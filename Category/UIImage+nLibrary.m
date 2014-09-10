@@ -269,4 +269,14 @@
   return img;
 }
 
++ (UIImage *)imageFromBase64String:(NSString *)base64String {
+  NSData *data = [[NSData alloc]initWithBase64EncodedString:base64String
+                                                    options:NSDataBase64DecodingIgnoreUnknownCharacters];
+  return [UIImage imageWithData:data];
+}
+
+- (NSString *)base64String {
+  return [UIImagePNGRepresentation(self) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+}
+
 @end

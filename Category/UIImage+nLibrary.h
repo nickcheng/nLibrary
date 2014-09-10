@@ -16,4 +16,7 @@
 
 - (UIImage *)fixOrientation;
 
++ (UIImage *)imageFromBase64String:(NSString *)base64String;
+- (NSString *)base64String;
+
 @end
