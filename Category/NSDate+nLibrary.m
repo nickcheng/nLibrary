@@ -713,7 +713,7 @@
       return @"WEDNESDAY";
       break;
     case 5:
-      return @"THURDAY";
+      return @"THURSDAY";
       break;
     case 6:
       return @"FRIDAY";
