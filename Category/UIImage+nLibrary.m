@@ -15,8 +15,8 @@
   
   NSString *name = imageName;
   
-  if ([[UIScreen mainScreen] sam_isGiraffe]) {
-    name = [NSString stringWithFormat:@"%@-568h", name];
+  if ([[UIScreen mainScreen] sam_isRetina4]) {
+    name = [NSString stringWithFormat:@"%@-568h.png", name];
   }
   
   return [self imageNamed:name];
@@ -42,7 +42,7 @@
   }
     
   //
-  if ([[UIScreen mainScreen] sam_isGiraffe]) {
+  if ([[UIScreen mainScreen] sam_isRetina4]) {
       [result appendString:@"-568h@2x"];
   } else if ([[UIScreen mainScreen] sam_isRetina]) {
     [result appendString:@"@2x"];
